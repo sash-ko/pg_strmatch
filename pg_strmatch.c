@@ -1,6 +1,6 @@
 #include "postgres.h"
 #include "fmgr.h"
-#include <utfasciitable.h>
+#include "strmatch_impl.h"
 
 #ifdef PG_MODULE_MAGIC
 PG_MODULE_MAGIC;
