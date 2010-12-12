@@ -1,0 +1,11 @@
+make
+sudo make install
+sudo su postgres -c 'psql -d DBNAME -f /usr/share/postgresql/PGVERSION/contrib/pg_strmatch_install.sql'
+sudo su postgres -c 'psql -d DBNAME -f test.sql'
+sudo su postgres -c 'psql -d DBNAME -f uninstall.sql'
+
+psql=# SELECT remove_spaces(' no  more spaces ');
+remove_spaces  
+----------------
+ no more spaces
+ (1 row)
