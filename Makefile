@@ -1,5 +1,5 @@
 MODULES = pg_strmatch
-DATA_built = pg_strmatch_install.sql
+DATA_built = pg_strmatch_install.sql pg_strmatch_uninstall.sql
 DOCS =
 
 PG_CONFIG = pg_config
