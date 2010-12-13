@@ -1,10 +1,11 @@
 MODULES = pg_strmatch
 DATA_built = pg_strmatch_install.sql pg_strmatch_uninstall.sql
-DOCS =
+DOCS = README
 REGRESS = remove_spaces
 
 PG_CONFIG = pg_config
-PGXS := $(shell $(PG_CONFIG) --pgxs)
+REGRESS_OPTS = --dbname=regression
+PGXS = $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
 all: pg_strmatch.so test
