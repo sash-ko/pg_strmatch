@@ -1,0 +1,29 @@
+#include <stdlib.h>
+#include "stop_words.h"
+
+const char *stop_words[] = 
+{
+    //ordered array
+%(stop_words)s
+};
+
+int str_cmp(const void *s1, const void *s2)
+{
+    return (strcmp(*(char **)s1, *(char **)s2));    
+}
+
+int is_stop_word(const char *word)
+{
+    int result = 1;
+
+    if(word != NULL)
+    {
+        char *res = NULL;
+        res = (char *)bsearch(&word, stop_words, sizeof(stop_words)/sizeof(char*),
+                    sizeof(char *), str_cmp); 
+        if(res == NULL)
+            result = 0;
+    }
+
+    return result;
+}

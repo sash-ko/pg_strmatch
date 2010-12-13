@@ -32,10 +32,16 @@ Datum remove_spaces(PG_FUNCTION_ARGS)
     PG_RETURN_TEXT_P(result);
 }
 
-//// Sort words in phrase: "first and second" -> "and first second"
-//PG_FUNCTION_INFO_V1(sort_words);
-//Datum sort_words(PG_FUNCTION_ARGS)
-//{}
+// Sort words in phrase: "first and second" -> "and first second"
+PG_FUNCTION_INFO_V1(remove_sort_words);
+Datum remove_sort_words(PG_FUNCTION_ARGS)
+{    
+    if(PG_ARGISNULL(0))
+        PG_RETURN_NULL();
+
+    text *t = PG_GETARG_TEXT_P(0);
+    PG_RETURN_TEXT_P(t);
+}
 
 //// Apply abbriviations: "east main street" -> "e main st"
 //PG_FUNCTION_INFO_V1(apply_abbr);

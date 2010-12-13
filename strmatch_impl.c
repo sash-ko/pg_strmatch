@@ -1,4 +1,5 @@
 #include "strmatch_impl.h"
+#include "stop_words.h"
 
 void remove_spaces_impl(char *str)
 {
@@ -25,4 +26,9 @@ void remove_spaces_impl(char *str)
         } while(*str++);
         *buf = 0;
     }
+}
+
+void remove_stop_words(char *str)
+{
+    
 }

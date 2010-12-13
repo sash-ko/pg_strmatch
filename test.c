@@ -2,6 +2,7 @@
 #include <string.h>
 #include <assert.h>
 #include "strmatch_impl.h"
+#include "stop_words.h"
 
 void test_remove_spaces()
 {
@@ -27,9 +28,19 @@ void test_remove_spaces()
     remove_spaces_impl(0);
 }
 
+void test_stop_words()
+{
+    assert(is_stop_word("non_stop") == 0); 
+    assert(is_stop_word("the der") == 0); 
+    assert(is_stop_word("the") == 1); 
+    assert(is_stop_word("der") == 1); 
+    assert(is_stop_word("на") == 1); 
+}
+
 int main(int argc, const char* argv[])
 {
     test_remove_spaces();
+    test_stop_words();
 
     return 0;
 }
