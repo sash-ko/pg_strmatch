@@ -1,8 +1,9 @@
-Install:
+Installation:
+
 1. make
 2. sudo make install
-3. sudo su postgres -c 'psql -d DBNAME -f /usr/share/postgresql/PGVERSION/contrib/pg_strmatch_install.sql'
-4. Run test (optional): sudo su postgres -c 'psql -d DBNAME -f test.sql'
+3. make installcheck
+4. sudo su postgres -c 'psql -d DBNAME -f /usr/share/postgresql/PGVERSION/contrib/pg_strmatch_install.sql'
 
 Uninstall:
 1. sudo su postgres -c 'psql -d DBNAME -f pg_strmatch_uninstall.sql'

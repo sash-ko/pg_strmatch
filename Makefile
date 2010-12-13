@@ -1,6 +1,7 @@
 MODULES = pg_strmatch
 DATA_built = pg_strmatch_install.sql pg_strmatch_uninstall.sql
 DOCS =
+REGRESS = remove_spaces
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)

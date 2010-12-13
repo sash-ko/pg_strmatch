@@ -1,0 +1,45 @@
+CREATE OR REPLACE FUNCTION remove_spaces(text) RETURNS text
+    AS 'pg_strmatch.so', 'remove_spaces'
+    LANGUAGE C STRICT;
+SELECT remove_spaces('') = '' AS result;
+ result 
+--------
+ t
+(1 row)
+
+SELECT remove_spaces(NULL) IS NULL AS result;
+ result 
+--------
+ t
+(1 row)
+
+SELECT remove_spaces('   ') = '' AS result;
+ result 
+--------
+ t
+(1 row)
+
+SELECT remove_spaces('no  space') = 'no space' AS result;
+ result 
+--------
+ t
+(1 row)
+
+SELECT remove_spaces(' spaces  ') = 'spaces' AS result;
+ result 
+--------
+ t
+(1 row)
+
+SELECT remove_spaces('  more  and more spaces!!  ') = 'more and more spaces!!' AS result;
+ result 
+--------
+ t
+(1 row)
+
+SELECT remove_spaces('no_space') = 'no_space' AS result;
+ result 
+--------
+ t
+(1 row)
+
