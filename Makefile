@@ -1,7 +1,7 @@
 MODULES = pg_strmatch
 DATA_built = pg_strmatch_install.sql pg_strmatch_uninstall.sql
 DOCS =
-REGRESS = remove_spaces
+REGRESS = remove_spaces remove_stop_words
 
 PG_CONFIG = pg_config
 REGRESS_OPTS = --dbname=regression

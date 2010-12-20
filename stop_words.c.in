@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "stop_words.h"
 
 const char *stop_words[] = 
@@ -15,8 +16,9 @@ int str_cmp(const void *s1, const void *s2)
 int is_stop_word(const char *word)
 {
     int result = 1;
-
-    if(word != NULL)
+    
+    //TODO: skip " ", "    "
+    if(word != NULL && strlen(word) > 0)
     {
         char *res = NULL;
         res = (char *)bsearch(&word, stop_words, sizeof(stop_words)/sizeof(char*),

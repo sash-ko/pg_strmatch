@@ -3,6 +3,12 @@ Installation:
 1. make
 2. sudo make install
 3. make installcheck
+    Error:
+        psql: could not connect to server: No such file or directory
+        Is the server running locally and accepting
+            connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+    Dirty fix:
+        ln -s /var/run/postgresql/.s.PGSQL.5432 /tmp/.s.PGSQL.5432
 4. sudo su postgres -c 'psql -d DBNAME -f /usr/share/postgresql/PGVERSION/contrib/pg_strmatch_install.sql'
 
 Uninstall:
@@ -13,4 +19,10 @@ psql=# SELECT remove_spaces(' no  more spaces ');
 remove_spaces  
 ----------------
  no more spaces
+ (1 row)
+ 
+psql=# SELECT remove_stop_words('the united states of america ');
+remove_stop_words 
+----------------
+ united states america
  (1 row)

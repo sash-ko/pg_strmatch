@@ -1,2 +1,5 @@
 *.so
 *.o
+results/
+stop_words.c
+test

@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION remove_stop_words(text) RETURNS text
+    AS 'pg_strmatch.so', 'remove_stop_words'
+    LANGUAGE C STRICT;
+SELECT remove_stop_words(NULL) IS NULL;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT remove_stop_words('') = '';
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+connection to server was lost
