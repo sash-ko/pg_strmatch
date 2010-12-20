@@ -30,7 +30,7 @@ void remove_spaces_impl(char *str)
     }
 }
 
-void remove_stop_words(char *str)
+void remove_stop_words_impl(char *str)
 {
     if(str && *str)
     {

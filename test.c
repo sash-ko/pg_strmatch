@@ -56,11 +56,11 @@ void test_remove_stop_words()
     {
         char buf[256];
         strcpy(buf, cases[i][0]);
-        remove_stop_words(buf);
+        remove_stop_words_impl(buf);
         assert(strcmp(buf, cases[i][1]) == 0);
     }
 
-    remove_stop_words(0);
+    remove_stop_words_impl(0);
 }
 
 int main(int argc, const char* argv[])

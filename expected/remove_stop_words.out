@@ -8,7 +8,32 @@ SELECT remove_stop_words(NULL) IS NULL;
 (1 row)
 
 SELECT remove_stop_words('') = '';
-server closed the connection unexpectedly
-	This probably means the server terminated abnormally
-	before or while processing the request.
-connection to server was lost
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT remove_stop_words('  ') = '';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT remove_stop_words('the') = '';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT remove_stop_words('test of the test') = 'test test';
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT remove_stop_words('test') = 'test';
+ ?column? 
+----------
+ t
+(1 row)
+
